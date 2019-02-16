@@ -76,14 +76,6 @@ public class DetailActivity extends AppCompatActivity {
                 ((LinearLayout) originTV.getParent()).setVisibility(View.VISIBLE);
                 originTV.setText(mSandwich.getPlaceOfOrigin());
             }
-            descriptionTV.setText(mSandwich.getDescription());
-            List<String> ingredients = mSandwich.getIngredients();
-            for (int i = 0; i < ingredients.size(); i++) {
-                ingredientsTV.append(ingredients.get(i));
-                if (i < ingredients.size() - 1) {
-                    ingredientsTV.append("\n");
-                }
-            }
             List<String> alsoKnownAs = mSandwich.getAlsoKnownAs();
             if (alsoKnownAs.size() == 0) {
                 ((LinearLayout) alsoKnownTV.getParent()).setVisibility(View.GONE);
@@ -94,6 +86,14 @@ public class DetailActivity extends AppCompatActivity {
                     if (i < alsoKnownAs.size() - 1) {
                         alsoKnownTV.append("\n");
                     }
+                }
+            }
+            descriptionTV.setText(mSandwich.getDescription());
+            List<String> ingredients = mSandwich.getIngredients();
+            for (int i = 0; i < ingredients.size(); i++) {
+                ingredientsTV.append(ingredients.get(i));
+                if (i < ingredients.size() - 1) {
+                    ingredientsTV.append("\n");
                 }
             }
         }
