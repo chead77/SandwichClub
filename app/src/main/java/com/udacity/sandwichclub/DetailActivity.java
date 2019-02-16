@@ -3,7 +3,9 @@ package com.udacity.sandwichclub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -68,7 +70,12 @@ public class DetailActivity extends AppCompatActivity {
         TextView ingredientsTV = findViewById(R.id.ingredients_tv);
         TextView alsoKnownTV = findViewById(R.id.also_known_tv);
         if (originTV != null && descriptionTV != null && ingredientsTV != null && alsoKnownTV != null) {
-            originTV.setText(mSandwich.getPlaceOfOrigin());
+            if (mSandwich.getPlaceOfOrigin().isEmpty())
+                ((LinearLayout) originTV.getParent()).setVisibility(View.GONE);
+            else {
+                ((LinearLayout) originTV.getParent()).setVisibility(View.VISIBLE);
+                originTV.setText(mSandwich.getPlaceOfOrigin());
+            }
             descriptionTV.setText(mSandwich.getDescription());
             List<String> ingredients = mSandwich.getIngredients();
             for (int i = 0; i < ingredients.size(); i++) {
@@ -78,10 +85,15 @@ public class DetailActivity extends AppCompatActivity {
                 }
             }
             List<String> alsoKnownAs = mSandwich.getAlsoKnownAs();
-            for (int i = 0; i < alsoKnownAs.size(); i++) {
-                alsoKnownTV.append(alsoKnownAs.get(i));
-                if (i < alsoKnownAs.size() - 1) {
-                    alsoKnownTV.append(", ");
+            if (alsoKnownAs.size() == 0) {
+                ((LinearLayout) alsoKnownTV.getParent()).setVisibility(View.GONE);
+            } else {
+                ((LinearLayout) alsoKnownTV.getParent()).setVisibility(View.VISIBLE);
+                for (int i = 0; i < alsoKnownAs.size(); i++) {
+                    alsoKnownTV.append(alsoKnownAs.get(i));
+                    if (i < alsoKnownAs.size() - 1) {
+                        alsoKnownTV.append("\n");
+                    }
                 }
             }
         }
