@@ -101,6 +101,7 @@
             possible to use only a few spices (which many vendors do), the resulting meat is less
             flavourful.\",\"image\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Roujiamo.jpg/800px-Roujiamo.jpg\",\"ingredients\":[\"Pork\",\"bread\"]}
         </item>
+        <!-- had to change the url for the image, as this one could not be found. I used another image from the same site. -->
         <item>{\"name\":{\"mainName\":\"Shawarma\",\"alsoKnownAs\":[]},\"placeOfOrigin\":\"Middle East,
             Levant\",\"description\":\"Shawarma also spelled shawurma or shawerma, is a Levantine
             meat preparation, where lamb, chicken, turkey, beef, veal, or mixed meats are placed on
