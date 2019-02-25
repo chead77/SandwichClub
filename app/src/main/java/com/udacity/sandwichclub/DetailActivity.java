@@ -3,6 +3,7 @@ package com.udacity.sandwichclub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -90,12 +91,7 @@ public class DetailActivity extends AppCompatActivity {
             }
             descriptionTV.setText(mSandwich.getDescription());
             List<String> ingredients = mSandwich.getIngredients();
-            for (int i = 0; i < ingredients.size(); i++) {
-                ingredientsTV.append(ingredients.get(i));
-                if (i < ingredients.size() - 1) {
-                    ingredientsTV.append("\n");
-                }
-            }
+            ingredientsTV.setText(TextUtils.join("\n", ingredients));
         }
     }
 }
